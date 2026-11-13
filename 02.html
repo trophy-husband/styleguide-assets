@@ -6,12 +6,8 @@ body{background:#fff;display:flex;align-items:center;justify-content:center;over
 #stage{position:relative;width:700px;height:500px;flex:0 0 auto;background:#fff;transform-origin:center center}
 #f{position:absolute;inset:26px 0 0 0;display:flex;align-items:center;justify-content:center}
 #card{width:286px;display:block;cursor:pointer;transition:transform .25s ease-out;
-clip-path:polygon(
-46px 14px,34px 20px,22px 16px,14px 46px,
-14px calc(100% - 48px),20px calc(100% - 34px),16px calc(100% - 22px),48px calc(100% - 14px),
-calc(100% - 46px) calc(100% - 14px),calc(100% - 34px) calc(100% - 18px),
-calc(100% - 22px) calc(100% - 24px),calc(100% - 14px) calc(100% - 50px),
-calc(100% - 14px) 46px,calc(100% - 18px) 32px,calc(100% - 24px) 20px,calc(100% - 48px) 14px)}
+clip-path:polygon(10px 0,calc(100% - 7px) 0,100% 9px,100% calc(100% - 14px),
+calc(100% - 3px) calc(100% - 6px),calc(100% - 11px) 100%,8px 100%,0 calc(100% - 8px),0 11px)}
 #card:hover{transform:translateY(-4px) rotate(-.6deg)}
 #nav{position:absolute;top:0;left:0;right:0;height:26px;display:flex;align-items:center;
 justify-content:space-between;padding:0 12px;box-sizing:border-box;font-size:11px;letter-spacing:.18em;
