@@ -2,9 +2,10 @@
 <html><head><meta charset="utf-8"><title>trophy husband</title>
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 <style>
-html{height:500px}
-body{margin:0;background:#fff;color:#000;width:700px;height:500px;position:relative;overflow:hidden;
-font-family:"Times New Roman",Times,serif;font-size:13px;line-height:1.42}
+html,body{height:100%;margin:0}
+body{background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;
+font-family:"Times New Roman",Times,serif;font-size:13px;line-height:1.42;color:#000}
+#stage{position:relative;width:700px;height:500px;flex:0 0 auto;background:#fff;transform-origin:center center}
 a{color:#0000EE;text-decoration:underline}
 a:visited{color:#551A8B}
 a:hover{background:#0000EE;color:#fff;text-decoration:none}
@@ -34,6 +35,7 @@ z-index:60;font-family:monospace}
 #nav a:hover{color:#fff;text-decoration:underline;background:none}
 </style></head>
 <body>
+<div id="stage">
 <div class="page">
 <div class="mast"><h1>trophy husband</h1><div class="tag">essays</div></div>
 <div class="stars">* * *</div>
@@ -64,4 +66,10 @@ z-index:60;font-family:monospace}
 <div class="foot">Home Wrecker Productions / trophy husband / <a href="#">e-mail me</a></div>
 </div>
 <div id="nav"><a href="03.html">&lsaquo;</a><span>04 / 08</span><a href="03.html">&rsaquo;</a></div>
+</div>
+<script>
+function fit(){var s=Math.min(innerWidth/700,innerHeight/500);
+document.getElementById('stage').style.transform='scale('+s+')'}
+addEventListener('resize',fit);fit();
+</script>
 </body></html>
