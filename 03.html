@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>trophy husband</title>
 <style>
-html{height:500px}
-body{margin:0;background:#000;width:700px;height:500px;position:relative;overflow:hidden;font-family:monospace}
+html,body{height:100%;margin:0}
+body{background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden;font-family:monospace}
+#stage{position:relative;width:700px;height:500px;flex:0 0 auto;background:#000;transform-origin:center center}
 #sky{position:absolute;inset:0;overflow:hidden;z-index:0;background:#000}
 .lay{position:absolute;inset:-60px;background-repeat:repeat}
 .l1{background-image:
@@ -39,7 +40,7 @@ background-size:380px 380px;opacity:1;animation:fl3 4.1s steps(1) infinite}
 @keyframes fl1{0%{opacity:.9}9%{opacity:.42}10%{opacity:1}23%{opacity:.6}24%{opacity:1}38%{opacity:.5}39%{opacity:.92}54%{opacity:.72}55%{opacity:1}69%{opacity:.52}70%{opacity:.88}84%{opacity:.64}85%{opacity:.97}100%{opacity:.9}}
 @keyframes fl2{0%{opacity:.6}14%{opacity:.92}15%{opacity:.38}31%{opacity:.8}32%{opacity:.5}46%{opacity:.97}47%{opacity:.44}63%{opacity:.8}64%{opacity:.55}78%{opacity:.94}79%{opacity:.4}100%{opacity:.6}}
 @keyframes fl3{0%{opacity:1}17%{opacity:.5}18%{opacity:1}35%{opacity:.66}36%{opacity:1}52%{opacity:.44}53%{opacity:1}70%{opacity:.7}71%{opacity:1}87%{opacity:.55}88%{opacity:1}100%{opacity:1}}
-#wrap3{position:relative;width:520px;height:440px;margin:36px auto 0;z-index:10}
+#wrap3{position:absolute;inset:0;z-index:10}
 #mark{position:absolute;left:50%;top:50%;width:240px;transform:translate(-50%,-50%);
 filter:drop-shadow(0 0 18px rgba(255,255,255,.22));z-index:5;cursor:pointer;transition:filter .2s}
 #mark:hover{filter:drop-shadow(0 0 26px rgba(255,255,255,.5))}
@@ -64,6 +65,7 @@ color:rgb(150,160,178);border-bottom:1px solid rgba(255,255,255,.16);background:
 #nav a:hover{color:#fff;text-decoration:underline}
 </style></head>
 <body>
+<div id="stage">
 <div id="sky"><div class="lay l1"></div><div class="lay l2"></div><div class="lay l3"></div></div>
 <div id="wrap3">
 <img id="mark" alt="TROPHY HUSBAND"
@@ -80,7 +82,11 @@ src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/Trophy%20
 </div></div>
 <div id="zoom"><img alt=""></div>
 <div id="nav"><a href="02.html">&lsaquo;</a><span>03 / 08</span><a href="04.html">&rsaquo;</a></div>
+</div>
 <script>
+function fit(){var s=Math.min(innerWidth/700,innerHeight/500);
+document.getElementById('stage').style.transform='scale('+s+')'}
+addEventListener('resize',fit);fit();
 document.getElementById('mark').onclick=function(){location.href='04.html'};
 var r=document.getElementById('ring'),z=document.getElementById('zoom'),zi=z.querySelector('img');
 document.querySelectorAll('.it').forEach(function(i){
