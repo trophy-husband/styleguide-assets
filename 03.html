@@ -48,7 +48,7 @@ filter:drop-shadow(0 0 18px rgba(255,255,255,.22));z-index:5;cursor:pointer;tran
 @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 @keyframes unspin{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
 .arm{position:absolute;left:50%;top:50%;width:0;height:0;transform:rotate(var(--a)) translateY(-200px)}
-.hold{position:absolute;left:0;top:0;width:0;height:0;transform:rotate(calc(-1*var(--a)))}
+.hold{position:absolute;left:0;top:0;width:0;height:0;transform:rotate(calc(-1 * var(--a)))}
 .it{position:absolute;left:-31px;top:-31px;width:62px;height:62px;object-fit:contain;cursor:pointer;
 animation:unspin 88s linear infinite;filter:drop-shadow(0 0 10px rgba(190,215,255,.45))}
 .it:hover{filter:drop-shadow(0 0 16px rgba(210,230,255,.95)) brightness(1.15)}
@@ -58,11 +58,6 @@ background:rgba(0,0,0,.8);opacity:0;pointer-events:none;transition:opacity .18s;
 #zoom.on{opacity:1;pointer-events:auto}
 #zoom img{max-width:440px;max-height:390px;object-fit:contain;
 filter:drop-shadow(0 0 34px rgba(180,210,255,.55))}
-#nav{position:absolute;top:0;left:0;right:0;height:26px;display:flex;align-items:center;
-justify-content:space-between;padding:0 12px;box-sizing:border-box;font-size:11px;letter-spacing:.18em;
-color:rgb(150,160,178);border-bottom:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.55);z-index:60}
-#nav a{color:rgb(210,218,232);text-decoration:none}
-#nav a:hover{color:#fff;text-decoration:underline}
 </style></head>
 <body>
 <div id="stage">
@@ -81,7 +76,6 @@ src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/Trophy%20
 <div class="arm" style="--a:315deg"><div class="hold"><img class="it" alt="" src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/sacredheart.png"></div></div>
 </div></div>
 <div id="zoom"><img alt=""></div>
-<div id="nav"><a href="02.html">&lsaquo;</a><span>03 / 08</span><a href="04.html">&rsaquo;</a></div>
 </div>
 <script>
 function fit(){var s=Math.min(innerWidth/700,innerHeight/500);
