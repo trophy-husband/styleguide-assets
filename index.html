@@ -27,28 +27,50 @@ cur.style.animation='blink .9s steps(1) infinite';
 out.appendChild(node);
 out.appendChild(cur);
 
-var BOOT='\n\nDELPHINE BBS  \u00b7  NODE 01  \u00b7  28.8K\n\nCARRIER DETECT\n\nLOGIN: guest\nPASSWORD: ****\n\nLAST CALL ......... 12.04.97\nFILES ............. 08 PAGES\n\nREADING /INDEX.HTM\n';
 var A='hello trophy husband';
 var B='press <ENTER> to access the site';
-var full=A+'\n\n'+B+'\n'+BOOT;
+var BOOT='\n\nDELPHINE BBS  \u00b7  NODE 01  \u00b7  28.8K\n\nCARRIER DETECT\n\nLOGIN: guest\nPASSWORD: ****\n\nLAST CALL ......... 12.04.97\nFILES ............. 08 PAGES\n\nREADING /INDEX.HTM\n';
 
-var i=0, started=false, timer=null;
+var waiting=false, busy=false, started=false;
 
 function go(){location.href='02.html'}
-function step(){
-  started=true;
-  cur.style.animation='none';
-  cur.style.opacity='1';
-  node.nodeValue=full.slice(0,i);
-  i++;
-  if(i<=full.length){ timer=setTimeout(step,26); }
-  else { setTimeout(go,1300); }
+function typeStr(s,sp,cb){
+  var k=0;
+  (function st(){
+    if(k<s.length){ node.nodeValue+=s[k++]; setTimeout(st,sp); }
+    else if(cb) cb();
+  })();
 }
 
-setTimeout(step,1750);
-setTimeout(function(){ if(!started){ i=full.length; started=true; node.nodeValue=full; setTimeout(go,1500); } },4000);
+setTimeout(function(){
+  started=true; busy=true;
+  cur.style.animation='none';
+  typeStr(A,26,function(){
+    setTimeout(function(){
+      node.nodeValue+='\n\n';
+      setTimeout(function(){
+        typeStr(B,26,function(){
+          busy=false; waiting=true;
+          cur.style.animation='blink .9s steps(1) infinite';
+        });
+      },380);
+    },300);
+  });
+},1750);
 
-document.addEventListener('keydown',function(e){ if(e.key==='Enter') go(); });
-document.addEventListener('click',function(){ go(); });
+document.addEventListener('keydown',function(e){
+  if(e.key!=='Enter'||!waiting) return;
+  waiting=false; busy=true;
+  cur.style.animation='none';
+  typeStr(BOOT,26,function(){ setTimeout(go,900); });
+});
+
+setTimeout(function(){
+  if(!started){
+    node.nodeValue=A+'\n\n'+B;
+    cur.style.animation='blink .9s steps(1) infinite';
+    waiting=true;
+  }
+},5000);
 </script>
 </body></html>
