@@ -4,22 +4,16 @@
 html,body{height:100%;margin:0}
 body{background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;font-family:monospace}
 #stage{position:relative;width:700px;height:500px;flex:0 0 auto;background:#fff;transform-origin:center center}
-#f{position:absolute;inset:26px 0 0 0;display:flex;align-items:center;justify-content:center}
+#f{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 #card{width:286px;display:block;cursor:pointer;transition:transform .25s ease-out;
 clip-path:polygon(10px 0,calc(100% - 7px) 0,100% 9px,100% calc(100% - 14px),
 calc(100% - 3px) calc(100% - 6px),calc(100% - 11px) 100%,8px 100%,0 calc(100% - 8px),0 11px)}
 #card:hover{transform:translateY(-4px) rotate(-.6deg)}
-#nav{position:absolute;top:0;left:0;right:0;height:26px;display:flex;align-items:center;
-justify-content:space-between;padding:0 12px;box-sizing:border-box;font-size:11px;letter-spacing:.18em;
-color:rgb(150,160,178);border-bottom:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.55);z-index:60}
-#nav a{color:rgb(210,218,232);text-decoration:none}
-#nav a:hover{color:#fff;text-decoration:underline}
 </style></head>
 <body>
 <div id="stage">
 <div id="f"><a href="03.html"><img id="card" alt=""
 src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/business%20card.png"></a></div>
-<div id="nav"><a href="index.html">&lsaquo;</a><span>02 / 08</span><a href="03.html">&rsaquo;</a></div>
 </div>
 <script>
 function fit(){var s=Math.min(innerWidth/700,innerHeight/500);
