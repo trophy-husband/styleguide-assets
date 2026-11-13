@@ -123,6 +123,10 @@ if(innerWidth<=780){st.style.transform='none';st.style.width='100%';st.style.hei
 else{st.style.width='700px';st.style.height='500px';
 st.style.transform='scale('+Math.min(innerWidth/700,innerHeight/500)+')'}}
 addEventListener('resize',fit);fit();
+addEventListener('pageshow',function(e){
+var nav=performance.getEntriesByType?performance.getEntriesByType('navigation')[0]:null;
+if(e.persisted||(nav&&nav.type==='back_forward'))location.reload();
+});
 var going=false;
 document.getElementById('mark').onclick=function(){
 if(going)return;going=true;
