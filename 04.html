@@ -48,4 +48,58 @@ h2{font-size:21px}
 </style></head>
 <body>
 <div id="stage">
-<div class
+<div class="page">
+<div class="mast"><h1>trophy husband</h1><div class="tag">essays</div></div>
+<div class="stars">* * *</div>
+<div class="cols">
+<div class="rail">
+<div class="h">Sections:</div>
+<a href="#">Index</a>
+<a href="#">Essays</a>
+<a href="#">Hopes, Dreams, Fears</a>
+<a href="#">Misc.</a>
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener">Click here to win $100</a>
+</div>
+<div class="lead">
+<img class="pic" alt="" src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/swed1.jpeg">
+<h2>Real Housewives of Dictators</h2>
+<p class="body">Suicide Sarah</p>
+<a class="read" href="#">Read the essay</a>
+</div>
+<div class="log">
+<div class="h">Recent:</div>
+<div class="e"><a href="#">Real Housewives of Dictators</a></div>
+<div class="e"><a href="#">Photocopiers &amp; MRIs</a></div>
+<div class="e"><a href="#">Girl Pirates</a></div>
+<div class="e"><a href="#">So I wrote a movie</a></div>
+<div class="e"><a href="#">This Is Not Lesbian Porn</a></div>
+</div>
+</div>
+<div class="foot">Home Wrecker Productions / trophy husband / <a href="#">e-mail me</a></div>
+</div>
+</div>
+<script>
+var st=document.getElementById('stage');
+function fit(){
+if(innerWidth<=780){st.style.transform='none';st.style.width='100%';st.style.height='100%'}
+else{st.style.width='700px';st.style.height='500px';
+st.style.transform='scale('+Math.min(innerWidth/700,innerHeight/500)+')'}}
+addEventListener('resize',fit);fit();
+function shrinkTo(el,avail,cap){
+el.style.fontSize=cap+'px';
+var n=cap;
+while(el.scrollWidth>avail&&n>8){n-=1;el.style.fontSize=n+'px'}
+}
+function fitTitles(){
+var h1=document.querySelector('h1'),h2=document.querySelector('h2'),
+tag=document.querySelector('.tag'),mast=document.querySelector('.mast'),lead=h2.parentNode;
+if(getComputedStyle(document.querySelector('.cols')).flexDirection!=='column'){
+h1.style.fontSize='';h2.style.fontSize='';return}
+shrinkTo(h1,mast.clientWidth-tag.offsetWidth-14,44);
+shrinkTo(h2,lead.clientWidth,32);
+}
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fitTitles);
+addEventListener('resize',fitTitles);
+setTimeout(fitTitles,60);
+</script>
+</body></html>
