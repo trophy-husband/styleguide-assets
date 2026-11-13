@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>trophy husband</title>
+<style>
+html{height:500px}
+body{margin:0;background:#000;color:#00FF80;width:700px;height:500px;position:relative;overflow:hidden;
+font-family:"Courier New",monospace;text-shadow:0 0 6px rgba(0,255,128,.55),0 0 18px rgba(0,255,128,.25)}
+#out{position:absolute;left:50%;bottom:50%;transform:translateX(-50%);margin:0;font-size:15px;
+line-height:1.55;white-space:pre;text-align:center}
+#cur{display:inline-block;width:.62em;height:1em;background:#00FF80;vertical-align:-.14em;
+animation:blink .9s steps(1) infinite}
+@keyframes blink{0%{opacity:1}50%{opacity:0}100%{opacity:1}}
+#nav{position:absolute;top:0;left:0;right:0;height:26px;display:flex;align-items:center;
+justify-content:space-between;padding:0 12px;box-sizing:border-box;font-size:11px;
+letter-spacing:.18em;color:rgb(150,160,178);border-bottom:1px solid rgba(255,255,255,.16);
+background:rgba(0,0,0,.55);z-index:60;text-shadow:none}
+#nav a{color:rgb(210,218,232);text-decoration:none}
+#nav a:hover{color:#fff;text-decoration:underline}
+</style></head>
+<body>
+<pre id="out"><span id="cur"></span></pre>
+<div id="nav"><a href="02.html">&lsaquo;</a><span>01 / 08</span><a href="02.html">&rsaquo;</a></div>
+<script>
+var out=document.getElementById('out'),cur=document.getElementById('cur');
+function type(s,sp,d){var i=0;(function st(){if(i<s.length){out.insertBefore(document.createTextNode(s[i++]),cur);setTimeout(st,sp)}else if(d)d()})()}
+var BOOT=['','DELPHINE BBS  \u00b7  NODE 01  \u00b7  28.8K','','CARRIER DETECT','','LOGIN: guest',
+'PASSWORD: ****','','LAST CALL ......... 12.04.97','FILES ............. 08 PAGES','','READING /INDEX.HTM'];
+function go(){location.href='02.html'}
+setTimeout(function(){
+cur.style.animation='none';cur.style.opacity='1';
+type('hello trophy husband',26,function(){
+setTimeout(function(){
+out.insertBefore(document.createTextNode('\n\n'),cur);
+setTimeout(function(){
+type('press <ENTER> to access the site',26,function(){
+setTimeout(function(){
+BOOT.forEach(function(l,i){setTimeout(function(){
+out.insertBefore(document.createTextNode(l+'\n'),cur);
+if(i===BOOT.length-1)setTimeout(go,1300)},i*130)})},700)})},380)})},300)})},1750);
+document.addEventListener('keydown',function(e){if(e.key==='Enter')go()});
+</script>
+</body></html>
