@@ -70,7 +70,30 @@ filter:drop-shadow(0 0 34px rgba(180,210,255,.55))}
 #zoom{background:rgba(0,0,0,.88)}
 #zoom img{max-width:86vw;max-height:62vh}
 }
-</style></head>
+/* ---- 3 -> 4 spin-out wink ---- */
+#spin{position:absolute;inset:0;z-index:60;pointer-events:none}
+#meWrap{position:absolute;left:50%;top:50%;width:280px;height:calc(280px * 1.24777);
+transform:translate(-50%,-50%) scale(.02);opacity:0;will-change:transform,opacity;
+filter:drop-shadow(0 0 40px rgba(150,195,255,.5))}
+.go #meWrap{animation:meOut .85s cubic-bezier(.16,.84,.28,1) .12s forwards}
+@keyframes meOut{
+0%{transform:translate(-50%,-50%) rotate(-880deg) scale(.02);opacity:0}
+10%{opacity:1}
+100%{transform:translate(-50%,-50%) rotate(0) scale(1);opacity:1}}
+#me,#meW{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover}
+#meW{opacity:0}
+.wink #meW{animation:blink 2s linear forwards}
+@keyframes blink{0%{opacity:0}1%{opacity:1}82%{opacity:1}83%{opacity:0}100%{opacity:0}}
+.go #sky{animation:skyOut .38s ease-out forwards}
+@keyframes skyOut{to{opacity:0}}
+.go #ring{animation:ringOut .42s cubic-bezier(.4,0,.9,1) forwards;pointer-events:none}
+@keyframes ringOut{to{transform:scale(1.75) rotate(70deg);opacity:0}}
+.go #mark{animation:markOut .4s cubic-bezier(.5,0,.9,.4) forwards;pointer-events:none}
+@keyframes markOut{to{transform:translate(-50%,-50%) rotate(540deg) scale(0);opacity:0}}
+</style>
+<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/me.png">
+<link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/VeniceAI_qME4a89Yztcqtd_0.png">
+</head>
 <body>
 <div id="stage">
 <div id="sky"><div class="lay l1"></div><div class="lay l2"></div><div class="lay l3"></div></div>
@@ -88,6 +111,10 @@ src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/Trophy%20
 <div class="arm" style="--a:315deg"><div class="hold"><img class="it" alt="" src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/sacredheart.png"></div></div>
 </div></div>
 <div id="zoom"><img alt=""></div>
+<div id="spin"><div id="meWrap">
+<img id="me" alt="" src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/me.png">
+<img id="meW" alt="" src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/VeniceAI_qME4a89Yztcqtd_0.png">
+</div></div>
 </div>
 <script>
 var st=document.getElementById('stage');
@@ -96,7 +123,13 @@ if(innerWidth<=780){st.style.transform='none';st.style.width='100%';st.style.hei
 else{st.style.width='700px';st.style.height='500px';
 st.style.transform='scale('+Math.min(innerWidth/700,innerHeight/500)+')'}}
 addEventListener('resize',fit);fit();
-document.getElementById('mark').onclick=function(){location.href='04.html'};
+var going=false;
+document.getElementById('mark').onclick=function(){
+if(going)return;going=true;
+st.classList.add('go');
+setTimeout(function(){st.classList.add('wink')},1050);
+setTimeout(function(){location.href='04.html'},3250);
+};
 var r=document.getElementById('ring'),z=document.getElementById('zoom'),zi=z.querySelector('img');
 document.querySelectorAll('.it').forEach(function(i){
 i.addEventListener('click',function(e){e.stopPropagation();zi.src=i.src;r.classList.add('paused');z.classList.add('on')})});
