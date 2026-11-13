@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><title>trophy husband</title>
 <style>
-html{height:500px}
-body{margin:0;background:#000;color:#00FF80;width:700px;height:500px;position:relative;overflow:hidden;
-font-family:"Courier New",monospace;text-shadow:0 0 6px rgba(0,255,128,.55),0 0 18px rgba(0,255,128,.25)}
+html,body{height:100%;margin:0}
+body{background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden;
+font-family:"Courier New",monospace}
+#stage{position:relative;width:700px;height:500px;flex:0 0 auto;background:#000;color:#00FF80;
+transform-origin:center center;text-shadow:0 0 6px rgba(0,255,128,.55),0 0 18px rgba(0,255,128,.25)}
 #out{position:absolute;left:50%;bottom:50%;transform:translateX(-50%);font-size:15px;line-height:1.55;
 white-space:pre;text-align:center;margin:0}
 #cur{display:inline-block;width:.62em;height:1em;background:#00FF80;vertical-align:-.14em}
@@ -16,9 +18,15 @@ z-index:60;text-shadow:none}
 #nav a:hover{color:#fff;text-decoration:underline}
 </style></head>
 <body>
+<div id="stage">
 <div id="out"></div>
 <div id="nav"><a href="02.html">&lsaquo;</a><span>01 / 08</span><a href="02.html">&rsaquo;</a></div>
+</div>
 <script>
+function fit(){var s=Math.min(innerWidth/700,innerHeight/500);
+document.getElementById('stage').style.transform='scale('+s+')'}
+addEventListener('resize',fit);fit();
+
 var out=document.getElementById('out');
 var node=document.createTextNode('');
 var cur=document.createElement('span');
@@ -30,47 +38,27 @@ out.appendChild(cur);
 var A='hello trophy husband';
 var B='press <ENTER> to access the site';
 var BOOT='\n\nDELPHINE BBS  \u00b7  NODE 01  \u00b7  28.8K\n\nCARRIER DETECT\n\nLOGIN: guest\nPASSWORD: ****\n\nLAST CALL ......... 12.04.97\nFILES ............. 08 PAGES\n\nREADING /INDEX.HTM\n';
-
-var waiting=false, busy=false, started=false;
+var waiting=false, started=false;
 
 function go(){location.href='02.html'}
-function typeStr(s,sp,cb){
-  var k=0;
-  (function st(){
-    if(k<s.length){ node.nodeValue+=s[k++]; setTimeout(st,sp); }
-    else if(cb) cb();
-  })();
-}
+function typeStr(s,sp,cb){var k=0;(function st(){
+if(k<s.length){node.nodeValue+=s[k++];setTimeout(st,sp)}else if(cb)cb()})()}
 
 setTimeout(function(){
-  started=true; busy=true;
-  cur.style.animation='none';
-  typeStr(A,26,function(){
-    setTimeout(function(){
-      node.nodeValue+='\n\n';
-      setTimeout(function(){
-        typeStr(B,26,function(){
-          busy=false; waiting=true;
-          cur.style.animation='blink .9s steps(1) infinite';
-        });
-      },380);
-    },300);
-  });
-},1750);
+started=true;cur.style.animation='none';
+typeStr(A,26,function(){
+setTimeout(function(){
+node.nodeValue+='\n\n';
+setTimeout(function(){
+typeStr(B,26,function(){
+waiting=true;cur.style.animation='blink .9s steps(1) infinite'})},380)},300)})},1750);
 
 document.addEventListener('keydown',function(e){
-  if(e.key!=='Enter'||!waiting) return;
-  waiting=false; busy=true;
-  cur.style.animation='none';
-  typeStr(BOOT,26,function(){ setTimeout(go,900); });
-});
+if(e.key!=='Enter'||!waiting)return;
+waiting=false;cur.style.animation='none';
+typeStr(BOOT,26,function(){setTimeout(go,900)})});
 
-setTimeout(function(){
-  if(!started){
-    node.nodeValue=A+'\n\n'+B;
-    cur.style.animation='blink .9s steps(1) infinite';
-    waiting=true;
-  }
-},5000);
+setTimeout(function(){if(!started){node.nodeValue=A+'\n\n'+B;
+cur.style.animation='blink .9s steps(1) infinite';waiting=true}},5000);
 </script>
 </body></html>
