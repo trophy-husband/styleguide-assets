@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>trophy husband</title>
+<style>
+html{height:500px}
+body{margin:0;background:#000;width:700px;height:500px;position:relative;overflow:hidden;font-family:monospace}
+#sky{position:absolute;inset:0;overflow:hidden;z-index:0;background:#000}
+.lay{position:absolute;inset:-60px;background-repeat:repeat}
+.l1{background-image:
+radial-gradient(circle at 40px 50px,#fff .9px,transparent 1.5px),
+radial-gradient(circle at 150px 26px,#fff .8px,transparent 1.3px),
+radial-gradient(circle at 250px 120px,#fff 1px,transparent 1.6px),
+radial-gradient(circle at 80px 180px,#fff .8px,transparent 1.3px),
+radial-gradient(circle at 200px 250px,#fff .9px,transparent 1.5px),
+radial-gradient(circle at 296px 204px,#fff .8px,transparent 1.3px),
+radial-gradient(circle at 120px 300px,#fff .9px,transparent 1.5px),
+radial-gradient(circle at 268px 44px,#fff .8px,transparent 1.3px),
+radial-gradient(circle at 34px 262px,#fff .8px,transparent 1.3px),
+radial-gradient(circle at 186px 150px,#fff .9px,transparent 1.5px),
+radial-gradient(circle at 104px 110px,#fff .8px,transparent 1.3px),
+radial-gradient(circle at 214px 340px,#fff .8px,transparent 1.3px);
+background-size:300px 300px;opacity:.9;animation:fl1 2.3s steps(1) infinite}
+.l2{background-image:
+radial-gradient(circle at 30px 40px,#fff .8px,transparent 1.3px),
+radial-gradient(circle at 140px 90px,#fff .9px,transparent 1.5px),
+radial-gradient(circle at 80px 150px,#fff .8px,transparent 1.3px),
+radial-gradient(circle at 190px 180px,#fff .9px,transparent 1.5px),
+radial-gradient(circle at 170px 40px,#fff .8px,transparent 1.3px),
+radial-gradient(circle at 40px 200px,#fff .9px,transparent 1.5px),
+radial-gradient(circle at 100px 60px,#fff .8px,transparent 1.3px),
+radial-gradient(circle at 200px 120px,#fff .9px,transparent 1.5px),
+radial-gradient(circle at 120px 200px,#fff .8px,transparent 1.3px),
+radial-gradient(circle at 20px 110px,#fff .9px,transparent 1.5px);
+background-size:220px 220px;opacity:.6;animation:fl2 1.7s steps(1) infinite}
+.l3{background-image:
+radial-gradient(circle at 230px 100px,#fff .7px,rgba(255,255,255,.6) 1.6px,rgba(255,255,255,.14) 5px,transparent 9px),
+radial-gradient(circle at 70px 240px,#fff .6px,rgba(255,255,255,.5) 1.4px,rgba(200,225,255,.12) 4px,transparent 8px),
+radial-gradient(circle at 300px 320px,#fff .7px,rgba(255,255,255,.55) 1.5px,rgba(255,255,255,.13) 4.5px,transparent 8px);
+background-size:380px 380px;opacity:1;animation:fl3 4.1s steps(1) infinite}
+@keyframes fl1{0%{opacity:.9}9%{opacity:.42}10%{opacity:1}23%{opacity:.6}24%{opacity:1}38%{opacity:.5}39%{opacity:.92}54%{opacity:.72}55%{opacity:1}69%{opacity:.52}70%{opacity:.88}84%{opacity:.64}85%{opacity:.97}100%{opacity:.9}}
+@keyframes fl2{0%{opacity:.6}14%{opacity:.92}15%{opacity:.38}31%{opacity:.8}32%{opacity:.5}46%{opacity:.97}47%{opacity:.44}63%{opacity:.8}64%{opacity:.55}78%{opacity:.94}79%{opacity:.4}100%{opacity:.6}}
+@keyframes fl3{0%{opacity:1}17%{opacity:.5}18%{opacity:1}35%{opacity:.66}36%{opacity:1}52%{opacity:.44}53%{opacity:1}70%{opacity:.7}71%{opacity:1}87%{opacity:.55}88%{opacity:1}100%{opacity:1}}
+#wrap3{position:relative;width:520px;height:440px;margin:36px auto 0;z-index:10}
+#mark{position:absolute;left:50%;top:50%;width:240px;transform:translate(-50%,-50%);
+filter:drop-shadow(0 0 18px rgba(255,255,255,.22));z-index:5;cursor:pointer;transition:filter .2s}
+#mark:hover{filter:drop-shadow(0 0 26px rgba(255,255,255,.5))}
+#ring{position:absolute;inset:0;animation:spin 88s linear infinite}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes unspin{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
+.arm{position:absolute;left:50%;top:50%;width:0;height:0;transform:rotate(var(--a)) translateY(-200px)}
+.hold{position:absolute;left:0;top:0;width:0;height:0;transform:rotate(calc(-1*var(--a)))}
+.it{position:absolute;left:-31px;top:-31px;width:62px;height:62px;object-fit:contain;cursor:pointer;
+animation:unspin 88s linear infinite;filter:drop-shadow(0 0 10px rgba(190,215,255,.45))}
+.it:hover{filter:drop-shadow(0 0 16px rgba(210,230,255,.95)) brightness(1.15)}
+#ring.paused,#ring.paused .it{animation-play-state:paused}
+#zoom{position:absolute;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;
+background:rgba(0,0,0,.8);opacity:0;pointer-events:none;transition:opacity .18s;cursor:zoom-out}
+#zoom.on{opacity:1;pointer-events:auto}
+#zoom img{max-width:440px;max-height:390px;object-fit:contain;
+filter:drop-shadow(0 0 34px rgba(180,210,255,.55))}
+#nav{position:absolute;top:0;left:0;right:0;height:26px;display:flex;align-items:center;
+justify-content:space-between;padding:0 12px;box-sizing:border-box;font-size:11px;letter-spacing:.18em;
+color:rgb(150,160,178);border-bottom:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.55);z-index:60}
+#nav a{color:rgb(210,218,232);text-decoration:none}
+#nav a:hover{color:#fff;text-decoration:underline}
+</style></head>
+<body>
+<div id="sky"><div class="lay l1"></div><div class="lay l2"></div><div class="lay l3"></div></div>
+<div id="wrap3">
+<img id="mark" alt="TROPHY HUSBAND"
+src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/Trophy%20husband%20logo.png">
+<div id="ring">
+<div class="arm" style="--a:0deg"><div class="hold"><img class="it" alt="" src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/TROPHY%20GREENCARD.png"></div></div>
+<div class="arm" style="--a:45deg"><div class="hold"><img class="it" alt="" src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/Trophy%20Dollar.png"></div></div>
+<div class="arm" style="--a:90deg"><div class="hold"><img class="it" alt="" src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/Vegas%20car.png"></div></div>
+<div class="arm" style="--a:135deg"><div class="hold"><img class="it" alt="" src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/prenup%20final.png"></div></div>
+<div class="arm" style="--a:180deg"><div class="hold"><img class="it" alt="" src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/trophy%20passport.png"></div></div>
+<div class="arm" style="--a:225deg"><div class="hold"><img class="it" alt="" src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/trophy%20ring.png"></div></div>
+<div class="arm" style="--a:270deg"><div class="hold"><img class="it" alt="" src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/moon.png"></div></div>
+<div class="arm" style="--a:315deg"><div class="hold"><img class="it" alt="" src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/sacredheart.png"></div></div>
+</div></div>
+<div id="zoom"><img alt=""></div>
+<div id="nav"><a href="02.html">&lsaquo;</a><span>03 / 08</span><a href="04.html">&rsaquo;</a></div>
+<script>
+document.getElementById('mark').onclick=function(){location.href='04.html'};
+var r=document.getElementById('ring'),z=document.getElementById('zoom'),zi=z.querySelector('img');
+document.querySelectorAll('.it').forEach(function(i){
+i.addEventListener('click',function(e){e.stopPropagation();zi.src=i.src;r.classList.add('paused');z.classList.add('on')})});
+function c(){z.classList.remove('on');r.classList.remove('paused')}
+z.addEventListener('click',c);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')c()});
+</script>
+</body></html>
