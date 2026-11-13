@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>trophy husband</title>
+<html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>trophy husband</title>
 <style>
 html,body{height:100%;margin:0}
 body{background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;font-family:monospace}
 #stage{position:relative;width:700px;height:500px;flex:0 0 auto;background:#fff;transform-origin:center center}
 #f{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
 #card{width:286px;display:block;cursor:pointer;transition:transform .25s ease-out;
+-webkit-tap-highlight-color:transparent;touch-action:manipulation;
 clip-path:polygon(10px 0,calc(100% - 7px) 0,100% 9px,100% calc(100% - 14px),
 calc(100% - 3px) calc(100% - 6px),calc(100% - 11px) 100%,8px 100%,0 calc(100% - 8px),0 11px)}
 #card:hover{transform:translateY(-4px) rotate(-.6deg)}
+@media (max-width:780px){
+#stage{width:100%;height:100%}
+#card{width:92vw;max-height:86vh;object-fit:contain}
+}
 </style></head>
 <body>
 <div id="stage">
@@ -16,8 +23,11 @@ calc(100% - 3px) calc(100% - 6px),calc(100% - 11px) 100%,8px 100%,0 calc(100% - 
 src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/business%20card.png"></a></div>
 </div>
 <script>
-function fit(){var s=Math.min(innerWidth/700,innerHeight/500);
-document.getElementById('stage').style.transform='scale('+s+')'}
+var st=document.getElementById('stage');
+function fit(){
+if(innerWidth<=780){st.style.transform='none';st.style.width='100%';st.style.height='100%'}
+else{st.style.width='700px';st.style.height='500px';
+st.style.transform='scale('+Math.min(innerWidth/700,innerHeight/500)+')'}}
 addEventListener('resize',fit);fit();
 </script>
 </body></html>
