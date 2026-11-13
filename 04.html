@@ -31,11 +31,14 @@ h2{font-family:"UnifrakturMaguntia",serif;font-weight:400;font-size:23px;margin:
 .foot{position:absolute;left:0;right:0;bottom:8px;padding:0 14px;font-size:11.5px;text-align:center}
 @media (max-width:780px){
 #stage{width:100%;height:100%}
-.page{position:relative;inset:auto;overflow-y:auto;padding:12px 14px 16px}
-h1{font-size:26px}
+.page{position:relative;inset:auto;overflow-y:auto;overflow-x:hidden;padding:12px 14px 16px}
+.mast{flex-wrap:nowrap}
+h1{white-space:nowrap}
+h2{white-space:nowrap}
+.tag{flex:0 0 auto}
 .cols{flex-direction:column;gap:12px}
-.lead{order:-1}
-.pic{max-height:32vh;width:auto}
+.rail{order:-1}
+.pic{max-height:23vh;width:auto}
 h2{font-size:21px}
 .rail{flex:0 0 auto;display:flex;flex-wrap:wrap;gap:8px 14px;line-height:1.4}
 .rail .h{width:100%;margin:0}
@@ -45,42 +48,4 @@ h2{font-size:21px}
 </style></head>
 <body>
 <div id="stage">
-<div class="page">
-<div class="mast"><h1>trophy husband</h1><div class="tag">essays</div></div>
-<div class="stars">* * *</div>
-<div class="cols">
-<div class="rail">
-<div class="h">Sections:</div>
-<a href="#">Index</a>
-<a href="#">Essays</a>
-<a href="#">Hopes, Dreams, Fears</a>
-<a href="#">Misc.</a>
-<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener">Click here to win $100</a>
-</div>
-<div class="lead">
-<img class="pic" alt="" src="https://cdn.jsdelivr.net/gh/trophy-husband/styleguide-assets@main/swed1.jpeg">
-<h2>Real Housewives of Dictators</h2>
-<p class="body">Suicide Sarah</p>
-<a class="read" href="#">Read the essay</a>
-</div>
-<div class="log">
-<div class="h">Recent:</div>
-<div class="e"><a href="#">Real Housewives of Dictators</a></div>
-<div class="e"><a href="#">Photocopiers &amp; MRIs</a></div>
-<div class="e"><a href="#">Girl Pirates</a></div>
-<div class="e"><a href="#">So I wrote a movie</a></div>
-<div class="e"><a href="#">This Is Not Lesbian Porn</a></div>
-</div>
-</div>
-<div class="foot">Home Wrecker Productions / trophy husband / <a href="#">e-mail me</a></div>
-</div>
-</div>
-<script>
-var st=document.getElementById('stage');
-function fit(){
-if(innerWidth<=780){st.style.transform='none';st.style.width='100%';st.style.height='100%'}
-else{st.style.width='700px';st.style.height='500px';
-st.style.transform='scale('+Math.min(innerWidth/700,innerHeight/500)+')'}}
-addEventListener('resize',fit);fit();
-</script>
-</body></html>
+<div class
